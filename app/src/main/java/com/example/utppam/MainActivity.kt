@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.compose.rememberNavController
 import com.example.utppam.ui.theme.UTPPAMTheme
 
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             UTPPAMTheme {
                 val navController = rememberNavController()
-                val todoList = remember { mutableStateListOf<TodoItem>() }
+                val todoList = rememberSaveable { mutableStateListOf<TodoItem>() }
                 AppNavHost(
                     navController = navController,
                     todoList = todoList
